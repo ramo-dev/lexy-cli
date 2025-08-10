@@ -53,10 +53,10 @@ pnpm start
 ```
 
 ## TODO
-[ ] Alias and an install script for global access
-[ ] Connect MCP tools
-[ ] Intergrate with system tools and actions
-[ ] CLI customization
+- [ ] Alias and an install script for global access
+- [ ] Connect MCP tools
+- [ ] Intergrate with system tools and actions
+- [ ] CLI customization
 
 This will start the interactive CLI, and you can start conversing with Lexy.
 
