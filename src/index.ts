@@ -2,6 +2,7 @@ import { response } from "./ai";
 import chalk from "chalk";
 import { rl } from "./utils/readline";
 import boxen from "boxen";
+import { checkStreamspeakInstalled } from "./utils/checkstream";
 
 let voiceEnabled = true;
 
@@ -15,6 +16,11 @@ function printBanner() {
 ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝   
   `);
   console.log(banner);
+};
+
+if (!checkStreamspeakInstalled()) {
+  console.log(chalk.yellow("⚠️  streamspeak not installed or no voices found. Disabling voice."));
+  voiceEnabled = false;
 }
 
 function printHelp() {

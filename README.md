@@ -14,8 +14,8 @@ Before you begin, ensure you have the following installed:
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/ramo-dev/lexy.git
-    cd lexy
+    git clone https://github.com/ramo-dev/lexy-cli.git
+    cd lexy-cli
     ```
 
 2.  **Install dependencies:**
@@ -51,6 +51,12 @@ To start the Lexy CLI, run the following command:
 ```bash
 pnpm start
 ```
+
+## TODO
+[ ] Alias and an install script for global access
+[ ] Connect MCP tools
+[ ] Intergrate with system tools and actions
+[ ] CLI customization
 
 This will start the interactive CLI, and you can start conversing with Lexy.
 
