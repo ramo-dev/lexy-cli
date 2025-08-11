@@ -19,12 +19,15 @@
     "chalk": "^5.5.0",
     "cli-spinners": "^3.2.0",
     "dotenv": "^17.2.1",
+    "marked": "^16.1.2",
+    "marked-terminal": "^7.3.0",
     "node": "^22.18.0",
     "remove-markdown": "^0.6.2",
     "tsx": "^4.20.3",
     "zod": "^4.0.16"
   },
   "devDependencies": {
+    "@types/marked-terminal": "^6.1.1",
     "@types/node": "^24.2.1",
     "typescript": "^5.9.2"
   }

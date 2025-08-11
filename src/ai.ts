@@ -8,6 +8,17 @@ import { spinner } from "./utils/spinner";
 import boxen from "boxen";
 import chalk from "chalk";
 import { voices } from "./types/voices";
+import { marked } from "marked";
+import TerminalRenderer from "marked-terminal";
+
+marked.setOptions({
+  // @ts-ignore — because marked-terminal's type defs are prehistoric
+  renderer: new TerminalRenderer({
+    heading: chalk.cyan.bold,
+    firstHeading: chalk.magenta.bold.underline,
+    code: chalk.green,
+  }),
+})
 
 dotenv.config();
 
@@ -43,7 +54,7 @@ export async function response(prompt: string, voiceEnabled: boolean) {
       return;
   }
   
-  spinner.stop(); // Stop the "thinking" spinner cleanly
+  spinner.stop();
 
   let sentenceBuffer = "";
   let fullResponse = "";
@@ -65,13 +76,19 @@ export async function response(prompt: string, voiceEnabled: boolean) {
     if(clean) await safeSpeak(clean, voice, speed);
   }
 
-  const finalBox = boxen(fullResponse, {
+  const renderedResponse = marked(fullResponse);
+  const terminalWidth = process.stdout.columns;
+  const boxWidth = terminalWidth - 4;
+
+//@ts-ignore
+  const finalBox = boxen(renderedResponse, {
+    width: boxWidth,
     padding: 1,
     margin: { top: 1, bottom: 1 },
     borderStyle: "round",
     borderColor: "cyan",
     title: "Lexy's Response",
-    titleAlignment: "center",
+    titleAlignment: "left",
   });
 
   console.log(finalBox);

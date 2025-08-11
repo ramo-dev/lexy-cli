@@ -31,7 +31,9 @@ function printHelp() {
   ${chalk.cyan("/help")}          - Show this help message
   ${chalk.cyan("/exit")}          - Quit the application
   `;
-  console.log(boxen(helpText, { padding: 1, margin: {bottom: 1}, borderStyle: "round", borderColor: "gray", title: "Commands" }));
+  const terminalWidth = process.stdout.columns;
+  const boxWidth = terminalWidth - 4;
+  console.log(boxen(helpText, { width : boxWidth, padding: 1, margin: {bottom: 1}, borderStyle: "round", borderColor: "gray", title: "Commands" }));
 }
 
 function printVoiceStatus() {
